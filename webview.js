@@ -1,12 +1,13 @@
-import path from 'path';
+const path = require('path');
 
 module.exports = (Franz) => {
   const getMessages = function getMessages() {
     // get unread messages
-    const count = document.querySelectorAll('.guilds-wrapper .badge').length;
+    var count = document.querySelectorAll('.guilds-wrapper .badge').length;
+    var indirectCount = document.querySelectorAll(".guild.unread").length;
 
     // set Franz badge
-    Franz.setBadge(count);
+    Franz.setBadge(count, indirectCount);
   };
 
   // check for new messages every second and update Franz badge
